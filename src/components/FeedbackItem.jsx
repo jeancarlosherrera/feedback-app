@@ -1,12 +1,10 @@
-const FeedbackItem = ({ feedbackProp }) => {
-  return feedbackProp.map((feedbackItem) => {
-    return (
-      <div key={feedbackItem.id} className='card'>
-        <div className='num-display'>{feedbackItem.rating}</div>
-        <div className='text-display'>{feedbackItem.text}</div>
-      </div>
-    )
-  })
+const FeedbackItem = ({ feedbackItemProp }) => {
+  return (
+    <div className='card'>
+      <div className='num-display'>{feedbackItemProp.rating}</div>
+      <div className='text-display'>{feedbackItemProp.text}</div>
+    </div>
+  )
 }
 
 export default FeedbackItem
