@@ -1,9 +1,11 @@
+import Card from './shared/Card'
+
 const FeedbackItem = ({ feedbackItemProp }) => {
   return (
-    <div className='card'>
+    <Card>
       <div className='num-display'>{feedbackItemProp.rating}</div>
       <div className='text-display'>{feedbackItemProp.text}</div>
-    </div>
+    </Card>
   )
 }
 
