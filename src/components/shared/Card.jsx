@@ -1,5 +1,5 @@
-const Card = ({ children }) => {
-  return <div className='card'> {children} </div>
+const Card = ({ children, reverse = false }) => {
+  return <div className={`card ${reverse && 'reverse'}`}> {children} </div>
 }
 
 export default Card
