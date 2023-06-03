@@ -1,11 +1,15 @@
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
 import FeedbackItem from './FeedbackItem'
 
-const FeedbackList = ({ feedbackProp, onDeleteProp }) => {
+const FeedbackList = ({ onDeleteProp }) => {
+  const { feedbackFromContext } = useContext(FeedbackContext)
+
   return (
     <div className='feedback-list'>
-      {feedbackProp.length === 0 || !feedbackProp
+      {feedbackFromContext.length === 0 || !feedbackFromContext
         ? 'No New Feedback Items Yet'
-        : feedbackProp.map((feedbackItem) => (
+        : feedbackFromContext.map((feedbackItem) => (
             <FeedbackItem
               onDeleteProp={onDeleteProp}
               key={feedbackItem.id}
