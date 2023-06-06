@@ -1,16 +1,27 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useEffect } from 'react'
 import FeedbackData from '../data/FeedbackData'
 import { v4 as uuidv4 } from 'uuid'
 
 const FeedbackContext = createContext()
 
 export const FeedbackProvider = ({ children }) => {
-  const [feedbackFromContext, setFeedbackFromContext] = useState(FeedbackData)
+  const [feedbackFromContext, setFeedbackFromContext] = useState([])
 
   const [feedbackToEdit, setFeedbackToEdit] = useState({
     feedbackItem: {},
     isEditModeOn: false,
   })
+
+  useEffect(() => {
+    fetchFeedback()
+  }, [])
+
+  //Fetch feedback
+  const fetchFeedback = async () => {
+    const res = await fetch('http://localhost:8000/feedback')
+    const data = await res.json()
+    setFeedbackFromContext(data)
+  }
 
   //Add feedback
   const addFeedback = (newFeedback) => {
@@ -24,7 +35,7 @@ export const FeedbackProvider = ({ children }) => {
       setFeedbackFromContext(feedbackFromContext.filter((el) => el.id !== id))
   }
 
-  //Selects item to be uptaded
+  //Select item to be uptaded
   const selectFeedbackToEdit = (feedbackItem) => {
     setFeedbackToEdit({
       feedbackItem,
