@@ -37,9 +37,12 @@ export const FeedbackProvider = ({ children }) => {
   }
 
   //Delete feedback
-  const deleteFeedback = (id) => {
-    if (window.confirm('Are you sure?'))
+  const deleteFeedback = async (id) => {
+    if (window.confirm('Are you sure?')) {
+      await fetch(`/feedback/${id}`, { method: 'DELETE' })
+
       setFeedbackFromContext(feedbackFromContext.filter((el) => el.id !== id))
+    }
   }
 
   //Select item to be uptaded
