@@ -14,6 +14,21 @@
       "id": 3,
       "rating": 8,
       "text": "This is feedback item 3 coming from the back end"
+    },
+    {
+      "text": "This is a test",
+      "rating": 1,
+      "id": 4
+    },
+    {
+      "text": "This is another test",
+      "rating": 2,
+      "id": 5
+    },
+    {
+      "text": "This is a third test",
+      "rating": 3,
+      "id": 6
     }
   ]
 }
